@@ -1,0 +1,31 @@
+<div>
+    <form #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+        <div>
+            <label for="name">Firs name : </label>
+            <input type="text" name="firstName" required [(ngModel)]="firstName">
+
+            <div *ngIf="loginForm.controls['lastName']?.touched &&loginForm.controls['firstName']?.invalid"
+            [ngStyle]="errorStyles" >This is required</div>
+        </div>
+        <div>
+            <label for="name">last name : </label>
+            <input type="text" name="lastName" required [(ngModel)]="lastName">
+            <div *ngIf="loginForm.controls['lastName']?.touched && loginForm.controls['lastName']?.invalid" style="color: red;">This is required</div>
+        </div>
+        <div>
+            <label for="name">email : </label>
+            <input type="text" name="email" required email [(ngModel)]="email">
+            <div *ngIf="loginForm.controls['email']?.touched && loginForm.controls['email']?.invalid"
+            [ngStyle]="{'color': 'red', 'font-weight': 'bold', 'background-color': 'lightyellow'}">This is required</div>
+        </div>
+
+        <div>
+            <label for="name">password : </label>
+            <input type="password" name="password" required [(ngModel)]="password">
+            <div *ngIf="loginForm.controls['password']?.touched && loginForm.controls['password']?.invalid"
+            [ngStyle]="{'color': 'red', 'font-weight': 'bold', 'background-color': 'lightyellow'}">This is required</div>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Submit</button>
+
+    </form>
+</div>
