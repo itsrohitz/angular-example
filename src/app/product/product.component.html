@@ -1,0 +1,17 @@
+<button (click)="goHome()">Home</button>
+
+
+<div style="color:red">
+    <p>option A</p>
+    <input type="radio" name="optionA" value="A" (click)="getValue($event)">
+</div>
+
+<div style="color:green">
+    <p>option B</p>
+    <input type="radio" name="optionb" value="b" (click)="getValue($event)">
+</div>
+<input [formControl]="searchControl" placeholder="Search items">
+ <ul>
+ <li *ngFor="let item of filteredItems">{{ item }}</li>
+ </ul>
+
